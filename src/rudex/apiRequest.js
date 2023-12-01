@@ -19,7 +19,7 @@ import { toast } from "react-toastify";
 export const loginUser = async (user, dispatch, history) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("/v1/auth/login", user);
+    const res = await axios.post("http://localhost:8000/v1/auth/login", user);
     dispatch(loginSuccess(res.data));
     history.push("/");
     toast.success("Đăng nhập thành công!");
@@ -34,7 +34,10 @@ export const registerUser = async (user, dispatch, history) => {
   console.log("user", user);
   dispatch(registerStart());
   try {
-    const response = await axios.post("/v1/auth/register", user);
+    const response = await axios.post(
+      "http://localhost:8000/v1/auth/register",
+      user
+    );
     console.log("reponse", response); //
     dispatch(registerSuccess());
     history.push("/LoginPage");
@@ -48,9 +51,12 @@ export const ReceiveCode = async (email) => {
   try {
     toast.success("Email xác nhận đã được gửi!");
 
-    const response = await axios.post("/email/send-verification-code", {
-      email,
-    });
+    const response = await axios.post(
+      "http://localhost:8000/email/send-verification-code",
+      {
+        email,
+      }
+    );
     return response.data;
   } catch (error) {
     toast.error("Lỗi khi gửi Email xác nhận !");
@@ -60,10 +66,13 @@ export const ReceiveCode = async (email) => {
 
 export const ConfirmCode = async (email, verificationCode) => {
   try {
-    const response = await axios.post("/email/verify-code", {
-      email,
-      code: verificationCode,
-    });
+    const response = await axios.post(
+      "http://localhost:8000/email/verify-code",
+      {
+        email,
+        code: verificationCode,
+      }
+    );
     return response.data;
   } catch (error) {
     throw error;
@@ -73,9 +82,12 @@ export const ConfirmCode = async (email, verificationCode) => {
 //Check email
 export const checkEmailExistence = async (email) => {
   try {
-    const response = await axios.post("/email/check-email", {
-      email,
-    });
+    const response = await axios.post(
+      "http://localhost:8000/email/check-email",
+      {
+        email,
+      }
+    );
 
     if (response.status === 200) {
       return response.data.isEmailExist;
@@ -106,9 +118,12 @@ export const checkEmailExistence = async (email) => {
 // };
 export const changePasswordService = async (newPassword, history) => {
   try {
-    const response = await axios.post("/v1/auth/changepassword", {
-      newPassword,
-    });
+    const response = await axios.post(
+      "http://localhost:8000/v1/auth/changepassword",
+      {
+        newPassword,
+      }
+    );
     if (response.status === 200) {
       history.push("/LoginPage");
       return response.data;
@@ -126,7 +141,10 @@ export const updateProfile = (userData, history) => async (dispatch) => {
   dispatch(updateProfileStart());
   console.log("id:", userData.id);
   try {
-    const response = await axios.put(`/v1//user/${userData.id}`, userData);
+    const response = await axios.put(
+      `http://localhost:8000/v1//user/${userData.id}`,
+      userData
+    );
     dispatch(updateProfileSuccess(response.data));
     history.push("/"); // Chuyển hướng sau khi cập nhật thành công
   } catch (error) {
@@ -158,7 +176,7 @@ export const updateProfile = (userData, history) => async (dispatch) => {
 export const logOut = async (dispatch, id, history, accessToken, axiosJWT) => {
   dispatch(logOutStart());
   try {
-    await axiosJWT.post("/v1/auth/logout", id, {
+    await axiosJWT.post("http://localhost:8000/v1/auth/logout", id, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(logOutSuccess()); // Dispatch action thành công khi logout
