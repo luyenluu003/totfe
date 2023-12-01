@@ -1,0 +1,96 @@
+.MainContainer{
+    height: 100vh;
+    z-index: 1;
+    flex-grow: 1;
+    padding: 5px 0;
+
+    .HomeMaincontainer{
+        height: 625px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(53, 51, 205, 0.4));
+        border-radius: 10px;
+        overflow: hidden;
+        
+        .BoxLine{
+            height: 1px;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 30px;
+            h3{
+                font-size: 24px;
+                color: #ffffff;
+            }
+            .line{
+                width: 75%;
+                border-bottom: 1px solid #ccc;
+            }
+            a{
+                cursor: pointer;
+                margin-bottom: 6px;
+                color: #d9d9d9;
+                font-size: 12px;
+                text-decoration: none;
+                i{
+                    font-size: 14px;
+                }
+                &:hover{
+                    color: #49e12e;
+                }
+            }
+        }
+        .BoxMusic{
+            display: flex;
+            padding-top: 30px;
+            padding-left: 40px;
+            overflow: hidden;
+            :hover{
+                opacity: calc(0.9);      
+            }
+
+            .cardMusic{
+                background: linear-gradient(135deg, #1e3d69, #58396b, #1e3d69);
+                width: 180px;
+                color: white;
+                display: flex;
+                border-radius: 0.5em;
+                flex-direction: column;
+                margin-right: 18px;
+                cursor: pointer;
+                .card-content{ 
+                    padding: 10px 5px;
+                    .imageBox{
+                        border-radius: 0.5em;
+                        display: flex;
+                        justify-content: center;
+                        img{
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 0.5em;
+                            object-fit: cover;
+                        }
+                    }
+                    .card-bottom{
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 10px;
+                        overflow: hidden;
+                        span{
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            &:nth-child(1){
+                                padding-top: 5px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #ffffff;
+                            }
+                            &:nth-child(2){
+                                font-size: 10px;
+                                color: #d9d9d9;
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}

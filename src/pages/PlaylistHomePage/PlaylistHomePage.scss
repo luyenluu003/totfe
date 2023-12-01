@@ -1,0 +1,197 @@
+.PlaylistHomePage{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: linear-gradient(to bottom right,#1e3d69,#58396b,#1e3d69);
+    .MainPlaylistHomePage{
+        height: 100vhpx;
+        z-index: 1;
+        flex-grow: 1;
+        padding: 5px 0;
+        .HomeMainPlaylistHomePage{
+            height: 625px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(53, 51, 205, 0.4));
+            border-radius: 10px;
+            overflow: hidden;
+            .lyricsMain{
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Căn giữa theo chiều ngang */
+                justify-content: center; /* Căn giữa theo chiều dọc */
+                width: 95%;
+                background-color: #181d38;
+                height: 550px;
+                margin-top: 10px;
+                padding: 10px 20px;
+                margin-left: 25px;
+                border-radius: 10px;
+                position: relative;
+                .lyrictitlle{
+                    color: #fff;
+                    text-align: center; /* Căn giữa nội dung trong .lyrictitlle */
+                    margin-top: -100px;
+                    padding-bottom: 30px;
+                    z-index: 99;
+                    h3{
+                        font-size: 15px;
+                    }
+                    .artist{
+                        margin-top: -18px;
+                    }
+                }
+                .singerImg{
+                    padding: 5px 5px;
+                    border-radius: 2em;
+                    text-align: center;
+                    img{
+                        width: 270px;
+                        height: 270px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        #rotatableImage {
+                            transition: transform 0.5s ease;
+                          }
+                    }
+                }
+                // 
+                .singerContent{
+                    padding: 20px 20px;
+                    color: white;
+                    .singerName{
+                        display: flex;
+                        h3{
+                            font-size: 40px;
+                            font-weight: bold;
+                            
+                        }
+                        i{
+                            font-size: 24px;
+                            color: #114fee;
+                            margin-top: 5px;
+                            margin-left: 10px;
+                        }
+                    }
+                    .follow{
+                        padding: 0 5px;
+                        span{
+                            font-size: 18px;
+                            font-weight: 700;
+                        }
+                        .btnFollow{
+                            background-color: rgba(255, 255, 255, 0.2);
+                            border: none;
+                            border-radius: 4px;
+                            text-align: center;
+                            margin-left: 10px;
+                            padding: 2px 15px;
+                            cursor: pointer;
+                            span{
+                                color: #f8f8f8;
+                            }
+                        }
+                    }
+                }
+                .songConTainer{
+                    height: 510px;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    &::-webkit-scrollbar {
+                        width: 0em; 
+                    }
+                    .songs{
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #848484;
+                        width: 100%;
+                        margin: 10px 0;
+                        padding: 5px;
+                        
+                        &:hover{
+                            color: #f1f1f1;
+                            transition: 0.3s;
+                        }
+                        .count{
+                            margin-right: 10px;
+                        }
+                        .song{
+                            display: flex;
+                            align-items: center;
+                            width: 100%;
+                            border-bottom: 1px solid rgba(255,255,255,0.1);
+                            padding-bottom: 5px;
+                            cursor: pointer;
+                            
+                            .imgBox{
+                                width: 45px;
+                                height: 45px;
+                                min-width: 45px;
+                                border-radius: 0.5em;
+                                background: #555;
+                                margin-right: 10px;
+                                overflow-x: hidden;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                            .section{
+                                display: flex;
+                                width: 100%;
+                                justify-content: space-between;
+                                align-items: center;
+                                .songName{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 50%;
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        .lyricsBox{
+            margin-top: -100px;
+            width: 80%;
+            margin-left: 10px;
+            height: 80px;
+            .lyricsLine{
+
+                .texts {
+                    width: 50%;
+                    height: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                  }
+                  
+                  .lyric {
+                    font-size: 1.5em;
+                    transition: .5s;
+                    width: 100%;
+                    background-size: 100% 1100%;
+                    background-image: linear-gradient(#cf5c5c, #c19b4a, #def2a0, #c6ee4a, #42eca6, #64b3d9, #208ea2, #498ada, #5b73df, #897ed3, #cf5c5c, #c19b4a);
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                    font-weight: bold;
+                    animation: gradient 10s linear infinite;
+                  }
+                  
+                  @keyframes gradient {
+                    0% { background-position: 0% 0%; }
+                    100% { background-position: 0% 100%; }
+                  }
+                  
+            }
+        }
+    }
+}
